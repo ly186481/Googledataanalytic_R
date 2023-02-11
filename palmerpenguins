@@ -74,3 +74,30 @@ rename_with(penguins,tolower)
 #clean_names()
 clean_names(penguins)
 
+#Organize data
+library(tidyverse)
+
+#asd order
+penguins %>% arrange(bill_length_mm)
+
+#desc order
+penguins %>% arrange(bill_length_mm)
+
+penguins2 <- penguins %>% arrange(-bill_length_mm)
+View(penguins2)
+
+#Group By
+penguins %>% group_by(island) %>% drop_na() %>% 
+  summarize(mean_bill_length_mm=mean(bill_length_mm))
+
+penguins %>% group_by(island) %>% drop_na() %>% 
+  summarize(max_bill_length_mm=max(bill_length_mm))
+
+#Group by species and max
+penguins %>% group_by(species,island) %>% drop_na() %>%
+  summarize(max_bl=max(bill_length_mm),mean_bl=mean(bill_length_mm))
+
+#== means exact data
+penguins %>%
+  filter(species=="Adelie")
+
