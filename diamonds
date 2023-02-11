@@ -1,0 +1,54 @@
+#our first calculations
+quarter_1_sales <- 35657.98
+quarter_2_sales <- 43810.55
+midyear_sales <- quarter_1_sales + quarter_2_sales
+midyear_sales
+
+yearend_sales <- midyear_sales*2
+yearend_sales
+
+#preview the data
+head(diamonds)
+
+#summaries of each column in your data arranged horizontally
+str(diamonds)
+glimpse(diamonds)
+
+#It returns a list of column name from your dataset
+colnames(diamonds)
+
+#rename the variables
+rename(diamonds, carat_new=carat)
+
+#generate a wide range of summary
+summarize(diamonds, mean_carat=mean(carat))
+
+ggplot(data=diamonds, aes(x=carat,y=price))+
+  geom_point()
+
+ggplot(data=diamonds, aes(x=carat, y=price, color=cut)) +
+  geom_point() + 
+  facet_wrap(~cut)
+
+#Working ith data frame
+install.packages("tidyverse")
+library(tidyverse)
+library(ggplot2)
+data("diamonds")
+View(diamonds)
+head(diamonds)
+
+str(diamonds)
+colnames(diamonds)
+
+glimpse()
+
+#change of data frame, mutate
+mutate(diamonds, carat_2=carat*100)
+
+#creating tibbles
+library(tidyverse)
+data("diamonds")
+View(diamonds)
+
+as_tibble(diamonds)
