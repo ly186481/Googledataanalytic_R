@@ -34,3 +34,43 @@ ggplot(data = penguins,
        aes(x=flipper_length_mm,y=body_mass_g)) + 
   geom_point(aes(shape=species,color=species)) + facet_wrap(~species) +
   labs(title="Palmer Penguins: Body Mass vs. Flipper Length")
+  
+#Cleaning up with the basics
+#install packages for data cleaning
+install.packages("here")
+library(here)
+install.packages("skimr")
+library(skimr)
+install.packages("janitor")
+library(janitor)
+install.packages("dplyr")
+library(dplyr)
+
+#reading csv, download here
+read_csv()
+
+install.packages("palmerpenguins")
+library(palmerpenguins)
+
+#summaries of data frame
+skim_without_charts(penguins)
+glimpse(penguins)
+head(penguins)
+
+penguins %>%
+  select(species)
+
+penguins %>%
+  select(-species)
+
+#rename()
+penguins %>%
+  rename(island_new=island)
+
+#rename_with()
+rename_with(penguins,toupper)
+rename_with(penguins,tolower)
+
+#clean_names()
+clean_names(penguins)
+
